@@ -7,17 +7,36 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
+    @State private var visaDigits = " • • • • 6756"
+    @State private var isExpanded = false
+    @State private var walletAmount = 34.01
+
+    @Namespace var button
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        VStack(alignment: .leading) {
+            CompactAddCashcardContent(
+                isExpanded: $isExpanded,
+                walletAmount: $walletAmount,
+                button: button
+            )
+            if isExpanded {
+                Divider()
+                ExpandedCard(walletAmount: $walletAmount, button: button)
+            }
         }
+        .overlay(
+            RoundedRectangle(cornerRadius: 28)
+                .stroke(.black.opacity(0.4))
+        )
         .padding()
     }
 }
+
+
+
 
 #Preview {
     ContentView()
