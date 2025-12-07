@@ -9,7 +9,7 @@ import SwiftUI
 
 struct cardComponent: View {
     var isActive: Bool
-    var borderSwicht: Namespace.ID
+    var borderSwitch: Namespace.ID
     var image: String
     var cardNumbers : String
     var body: some View {
@@ -41,7 +41,7 @@ struct cardComponent: View {
             if isActive {
                 RoundedRectangle(cornerRadius: 14, )
                     .stroke(.black,lineWidth:2)
-                    .matchedGeometryEffect(id: "border", in: borderSwicht)
+                    .matchedGeometryEffect(id: "border", in: borderSwitch)
             }
         }
     }
